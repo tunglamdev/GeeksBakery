@@ -1,0 +1,27 @@
+<?php
+    namespace App\Core;
+    
+    class Controller{
+        //Call model
+        function model($model){
+            if(file_exists(MODEL . DS . $model . ".php")){
+                require_once MODEL . DS . $model . ".php";
+                return new $model;
+            }
+            else{
+                echo "Not found model: ".$model;
+            }
+            
+        }
+
+        // Call view
+        function view($view, $data=[]){
+            if(file_exists(VIEW . DS . $view . ".php")){
+                require_once VIEW . DS . $view. ".php";
+            }
+            else{
+                echo "Not found view: ".$view;
+            }
+        }
+    }
+?>
