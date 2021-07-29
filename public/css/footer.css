@@ -38,6 +38,10 @@
     color: var(--text-color);
 }
 
+.footer__social-media{
+    width: 180px;
+}
+
 .footer__social-media a{
     width: 29px;
     height: 29px;

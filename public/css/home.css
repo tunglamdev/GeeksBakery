@@ -26,7 +26,7 @@
     color: var(--title-color);
     font-family: var(--font-nunito);
     font-size: 40px;
-    font-weight: 700px;
+    font-weight: 700;
     position: relative;
 }
 
@@ -74,7 +74,7 @@
     height: 152px;
 }
 .category__item-name{
-    font-weight: 500px;
+    font-weight: 500;
     font-size: 22px;
     font-family: var(--font-poppin);
     color: var(--title-color);
@@ -83,7 +83,7 @@
 }
 
 .category__item-desc{
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 13px;
     font-family: var(--font-poppin);
     color: var(--text-color);
@@ -253,13 +253,14 @@
 .sweeties__item{
     /* border: 1px solid transparent; */
     /* box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.13); */
-    width: 275px;
-    height: 375px;
+    width: 250px;
+    height: 370px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 10px 20px 10px;
+    padding: 10px;
     margin: 0 10px 30px 10px;
 }
 
@@ -277,6 +278,7 @@
 .sweeties__item img{
     width: 255px;
     height: 192px;
+    border-radius: 15px;
 }
 
 .sweeties__item-name{
@@ -336,6 +338,14 @@
     align-items: center;
 }
 
+/* .sweeties__menu-number{
+    border-radius: 100%;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    width: 34px;
+    height: 34px;
+} */
+
 .sweeties__menu-number{
     border-radius: 100%;
     border: 1px solid var(--main-color);
@@ -344,12 +354,20 @@
     height: 34px;
     margin: 0 4px;
     font-size: 19px;
-    font-weight: 600px;
+    font-weight: 600;
     line-height: 35px;
     text-align: center;
 }
 
 .sweeties__menu-number:hover{
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 5px rgb(214, 59, 59);
+}
+
+.sweeties__menu-number a:focus{
     background-color: var(--main-color);
     color: white;
     cursor: pointer;

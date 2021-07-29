@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geek's Bakery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet" />
     <link rel="stylesheet" href="<?= URL_CSS ?>base.css">
     <link rel="stylesheet" href="<?= URL_CSS ?>header.css">
     <link rel="stylesheet" href="<?= URL_CSS ?>reset.css">
@@ -77,14 +81,14 @@
                     <h2>Sweeties</h2>
                 </div>
                 <ul class="sweeties__list">
-                    <?php foreach($data["cake"] as $index => $cakes) :?>
+                    <?php foreach($data["cake_to_show"] as $index => $cakes) :?>
                         <a href="#">
                             <li class="sweeties__item">
                                 <img src="<?= URL_CAKE ?><?= $cakes["image"] ?>" alt="<?= $cakes["name"] ?>">
                                 <p class="sweeties__item-name"><?= $cakes["name"] ?></p>
                                 <div class="sweeties__item-price">
-                                    <p class="sweeties__item-new-price"><?= $cakes["price"] ?></p>
-                                    <p class="sweeties__item-old-price">300.000</p>
+                                    <p class="sweeties__item-new-price"><?= $cakes["price"] ?>đ</p>
+                                    <p class="sweeties__item-old-price">300.000đ</p>
                                 </div>
                                 <button class="sweeties__item-button" type="submit">Add to cart+</button>
                             </li>
@@ -93,15 +97,14 @@
                 </ul>
                 <ul class="sweeties__menu">
                     <li>
-                        <img src="<?= URL_ICON ?>Arrow_1.svg" alt="Previous">
+                        <a href="#"><img src="<?= URL_ICON ?>Arrow_1.svg" alt="Previous"></a>
                     </li>
-                    <li class="sweeties__menu-number">1</li>
-                    <li class="sweeties__menu-number">2</li>
-                    <li class="sweeties__menu-number">3</li>
-                    <li class="sweeties__menu-number">4</li>
-                    <li class="sweeties__menu-number">5</li>
+                    <?php $num = ceil($data["num_of_cake"]/NUM_OF_CAKE_ON_PAGE); ?>
+                    <?php for($i=1; $i<=$num ; $i++) :?>
+                        <a href="index.php?page=<?= $i ?>"><li class="sweeties__menu-number"><?= $i ?></li></a>
+                    <?php endfor; ?>
                     <li>
-                        <img src="<?= URL_ICON ?>Arrow_2.svg" alt="Previous">
+                        <a href="#"><img src="<?= URL_ICON ?>Arrow_2.svg" alt="Next"></a>
                     </li>
                 </ul>
             </div>

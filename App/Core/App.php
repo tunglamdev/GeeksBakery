@@ -4,8 +4,8 @@
     class App{
 
         public $controller = "Home";
-        protected $action = "Index";
-        protected $params = [];
+        public $action = "Index";
+        public $params = [];
 
 
         function __construct(){
@@ -39,6 +39,10 @@
         function urlProcess(){
             if(isset($_GET["url"])){
                 return explode("/", filter_var(trim($_GET["url"],"/")));
+            }
+            else{
+                return
+                [ "home","index" ];
             }
         }
     }
