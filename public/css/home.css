@@ -99,7 +99,7 @@
     position: relative;
 }
 
-.sell__button-left{
+/* .sell__button-left{
     position: absolute;
     left: 150px;
     top:55%;
@@ -109,7 +109,7 @@
     position: absolute;
     right: 150px;
     top:55%;
-}
+} */
 
 .sell__button-left img:hover, .sell__button-right img:hover{
     cursor: pointer;
@@ -121,7 +121,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin: 0;
+    position: relative;
 }
 
 .sell__title h2{
@@ -533,6 +534,10 @@
         margin-top: 15px;
     }
 
+    .sell__btn{
+        width: 380px;
+    }
+
     .sell__content-img img{
         width: 360px;
         height: 280px;
@@ -585,17 +590,8 @@
         order: 1;
     }
 
-    .sell__button-left{
-        order: 2;
-        left: 10%;
-        bottom: 0;
-        z-index: 1000;
-    }
-
-    .sell__button-right{
-        order: 3;
-        right: 10%;
-        bottom: 0;
+    .sell__button-left , .sell__button-right{
+        display: none;
     }
 
     .sweeties__menu-number{
@@ -624,6 +620,10 @@
     .sell__content{
         width: 750px;
         margin-top: 10px;
+    }
+
+    .sell__btn{
+        width: 750px;
     }
 
     .sell__content-img img{
