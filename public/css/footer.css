@@ -18,7 +18,7 @@
 }
 
 .footer__list{
-    margin-left: 120px;
+    margin-left: 100px;
 }
 
 .footer__title{
@@ -101,6 +101,10 @@
         font-size: 16px;
     }
 
+    .footer__social-media{
+        text-align: center;
+    }
+
     .footer__social-media a:last-child{
         margin: 0;
     }
@@ -128,6 +132,11 @@
     .footer__social-media a{
         margin-right: 10px;
     }
+
+    .footer__social-media{
+        width: 120px;
+    }
+
     .footer__title{
         font-size: 18px;
     }

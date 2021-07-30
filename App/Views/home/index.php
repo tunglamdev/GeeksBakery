@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<?= URL_CSS ?>home.css">
     <link rel="stylesheet" href="<?= URL_CSS ?>footer.css">
 </head>
-<body>
+<body onload="currentSlide(1)">
     <!-- Header -->
     <?php require_once VIEW."/shared/header.php" ?>
 
@@ -55,59 +55,25 @@
             <div class="sell__title">
                 <h2>Best Seller</h2>
             </div>
-            <div class="sell__content">
-                <div class="sell__content-img">
-                    <img src="<?= URL_CAKE ?>12.1.jpg" alt="Chocolate Cake">
+            <?php foreach($data["bestSeller"] as $index => $cakes) :?>
+                <div class="sell__content">
+                    <div class="sell__content-img">
+                        <img src="<?= URL_CAKE ?><?= $cakes["image"] ?>" alt="<?= $cakes["name"] ?>">
+                    </div>
+                    <div class="sell__content-content">
+                        <p class="sell__content-title"><?= $cakes["name"] ?></p>
+                        <p class="sell__content-desc">Award yourself with this rich chocolate cake wonderfully crammed with Cadbury Fuse and white chocolate chunks and draped lusciously with molten chocolate. This perfect work of art hides in every bite of chocolate that is a little nutty and a lot of tasty!</p>
+                        <p class="sell__content-new-price"><?= $cakes["price"] ?></p>
+                        <p class="sell__content-old-price">400.000đ</p>
+                        <button class="sell__content-add" type="submit">Add to cart +</button>
+                    </div>
                 </div>
-                <div class="sell__content-content">
-                    <p class="sell__content-title">Snicker Fuse Chocolate Cake</p>
-                    <p class="sell__content-desc">Award yourself with this rich chocolate cake wonderfully crammed with Cadbury Fuse and white chocolate chunks and draped lusciously with molten chocolate. This perfect work of art hides in every bite of chocolate that is a little nutty and a lot of tasty!</p>
-                    <p class="sell__content-new-price">350.000đ</p>
-                    <p class="sell__content-old-price">400.000đ</p>
-                    <button class="sell__content-add" type="submit">Add to cart +</button>
-                </div>
-            </div>
-            <div class="sell__content" style="display: none">
-                <div class="sell__content-img">
-                    <img src="<?= URL_CAKE ?>13.1.jpg" alt="Chocolate Cake">
-                </div>
-                <div class="sell__content-content">
-                    <p class="sell__content-title">Snicker Fuse Chocolate Cake</p>
-                    <p class="sell__content-desc">Award yourself with this rich chocolate cake wonderfully crammed with Cadbury Fuse and white chocolate chunks and draped lusciously with molten chocolate. This perfect work of art hides in every bite of chocolate that is a little nutty and a lot of tasty!</p>
-                    <p class="sell__content-new-price">350.000đ</p>
-                    <p class="sell__content-old-price">400.000đ</p>
-                    <button class="sell__content-add" type="submit">Add to cart +</button>
-                </div>
-            </div>
-            <div class="sell__content" style="display: none">
-                <div class="sell__content-img">
-                    <img src="<?= URL_CAKE ?>14.1.jpg" alt="Chocolate Cake">
-                </div>
-                <div class="sell__content-content">
-                    <p class="sell__content-title">Snicker Fuse Chocolate Cake</p>
-                    <p class="sell__content-desc">Award yourself with this rich chocolate cake wonderfully crammed with Cadbury Fuse and white chocolate chunks and draped lusciously with molten chocolate. This perfect work of art hides in every bite of chocolate that is a little nutty and a lot of tasty!</p>
-                    <p class="sell__content-new-price">350.000đ</p>
-                    <p class="sell__content-old-price">400.000đ</p>
-                    <button class="sell__content-add" type="submit">Add to cart +</button>
-                </div>
-            </div>
-            <div class="sell__content" style="display: none">
-                <div class="sell__content-img">
-                    <img src="<?= URL_CAKE ?>15.1.jpg" alt="Chocolate Cake">
-                </div>
-                <div class="sell__content-content">
-                    <p class="sell__content-title">Snicker Fuse Chocolate Cake</p>
-                    <p class="sell__content-desc">Award yourself with this rich chocolate cake wonderfully crammed with Cadbury Fuse and white chocolate chunks and draped lusciously with molten chocolate. This perfect work of art hides in every bite of chocolate that is a little nutty and a lot of tasty!</p>
-                    <p class="sell__content-new-price">350.000đ</p>
-                    <p class="sell__content-old-price">400.000đ</p>
-                    <button class="sell__content-add" type="submit">Add to cart +</button>
-                </div>
-            </div>
+            <?php endforeach; ?>
+            
             <div class="sell__btn">
-                <div class="sell__button button-active" onclick="currentSlide(1)"></div>
-                <div class="sell__button" onclick="currentSlide(2)"></div>
-                <div class="sell__button" onclick="currentSlide(3)"></div>
-                <div class="sell__button" onclick="currentSlide(4)"></div>
+                <?php foreach($data["bestSeller"] as $index => $cakes) :?>
+                    <div class="sell__button" onclick="currentSlide(<?= $index+1 ?>)"></div>
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="sell__button-right" onclick="pushSlide(1)">

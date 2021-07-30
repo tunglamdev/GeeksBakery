@@ -4,7 +4,7 @@
             <div class="header">
                 <a class="header__logo" href="#"><img src="<?= URL_ICON ?>/Geek's Bakery 1.svg" alt="Geek's Bakery "></a>
                 <div class="header__menu">
-                    <a href="#">Home</a>
+                    <a href="index.php">Home</a>
                     <a href="#">Cakes</a>
                     <a href="#">About</a>
                 </div>

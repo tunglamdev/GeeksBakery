@@ -46,6 +46,11 @@
             $data["num_of_cake"] = $numOfCake;
             $data["cake_to_show"] = $cakeOnPage;
             $data["caketype"] = $caketypes;
+            $data["bestSeller"][] = $cakes[1];
+            $data["bestSeller"][] = $cakes[5];
+            $data["bestSeller"][] = $cakes[7];
+            $data["bestSeller"][] = $cakes[9];
+            $data["bestSeller"][] = $cakes[15];
             $this->view("home/index", $data);
         }
     }
