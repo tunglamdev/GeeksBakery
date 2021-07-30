@@ -166,7 +166,6 @@
     font-weight: 600px;
     line-height: 45px;
     font-weight: bold;
-    margin-top: 10px;
 }
 
 .sell__content-desc{
@@ -214,6 +213,33 @@
 }
 
 .sell__content-add:hover{
+    cursor: pointer;
+}
+
+.sell__btn{
+    display: flex;
+    justify-content: center;
+    width: 1152px;
+    padding-bottom: 10px;
+}
+
+.sell__button{
+    background-color: rgb(185, 183, 183);
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    display: inline;
+    margin: 5px;
+}
+
+.button-active{
+    width: 30px;
+    background-color: rgb(5, 5, 5);
+    border-radius: 10px;
+
+}
+
+.sell__button:hover{
     cursor: pointer;
 }
 
