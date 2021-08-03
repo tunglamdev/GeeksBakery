@@ -18,10 +18,10 @@
                 $cakes=[];
             }
 
-            //Get num of cakes
+            //Get the number of cakes
             $numOfCake = $this->cakeModel->count();
 
-            // Get cakes to show on page
+            // Get cakes to show on Sweeties
             if(isset($_GET["page"])){
                 $page = $_GET["page"];
             }
@@ -35,7 +35,7 @@
                 $caketypes=[];
             }
 
-            //Get all of caketypes
+            //Get all of caketypes to show on Categories
             $caketypes = $this->caketypeModel->all();
             if(!$caketypes){
                 $caketypes=[];
@@ -46,11 +46,15 @@
             $data["num_of_cake"] = $numOfCake;
             $data["cake_to_show"] = $cakeOnPage;
             $data["caketype"] = $caketypes;
+
+            //Get cakes to show on Best Seller
             $data["bestSeller"][] = $cakes[1];
             $data["bestSeller"][] = $cakes[5];
             $data["bestSeller"][] = $cakes[7];
             $data["bestSeller"][] = $cakes[9];
             $data["bestSeller"][] = $cakes[15];
+
+            //Call the view
             $this->view("home/index", $data);
         }
     }

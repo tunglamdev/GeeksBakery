@@ -33,7 +33,7 @@
                 </div>
                 <ul class="category__list">
                     <?php foreach($data["caketype"] as $index => $caketypes) : ?>
-                        <a href="#">
+                        <a href="<?= DOCUMENT_ROOT ?>/cakes/categories?id=<?= $caketypes["id"] ?>">
                             <li class="category__item">
                                 <img src="<?= URL_CATEGORY ?><?= $caketypes["image"]?>" alt="<?= $caketypes["name"]?>">
                                 <p class="category__item-name"><?= $caketypes["name"] ?></p>
@@ -105,14 +105,14 @@
                 </ul>
                 <ul class="sweeties__menu">
                     <li>
-                        <a href="#"><img src="<?= URL_ICON ?>Arrow_1.svg" alt="Previous"></a>
+                        <a href="<?= DOCUMENT_ROOT ?>/cakes/index?page=1"><img src="<?= URL_ICON ?>Arrow_1.svg" alt="Previous"></a>
                     </li>
                     <?php $num = ceil($data["num_of_cake"]/NUM_OF_CAKE_ON_PAGE); ?>
                     <?php for($i=1; $i<=$num ; $i++) :?>
-                        <a href="index.php?page=<?= $i ?>"><li class="sweeties__menu-number"><?= $i ?></li></a>
+                        <a href="<?= DOCUMENT_ROOT ?>/cakes/index?page=<?= $i ?>"><li class="sweeties__menu-number <?= $i==1 ? "sweeties__menu-number--active" : "" ?>"><?= $i ?></li></a>
                     <?php endfor; ?>
                     <li>
-                        <a href="#"><img src="<?= URL_ICON ?>Arrow_2.svg" alt="Next"></a>
+                        <a href="<?= DOCUMENT_ROOT ?>/cakes/index?page=2"><img src="<?= URL_ICON ?>Arrow_2.svg" alt="Next"></a>
                     </li>
                 </ul>
             </div>
@@ -121,6 +121,8 @@
 
     <!-- Footer -->
     <?php require_once VIEW."/shared/footer.php" ?>
+
+    <!-- Javascript -->
     <script src="<?= URL_JS ?>slideShow.js"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@
             <div class="header">
                 <a class="header__logo" href="#"><img src="<?= URL_ICON ?>/Geek's Bakery 1.svg" alt="Geek's Bakery "></a>
                 <div class="header__menu">
-                    <a href="index.php">Home</a>
-                    <a href="#">Cakes</a>
+                    <a href="<?= DOCUMENT_ROOT?>/home">Home</a>
+                    <a href="<?= DOCUMENT_ROOT?>/cakes">Cakes</a>
                     <a href="#">About</a>
                 </div>
                 <div class="header__search">
@@ -18,12 +18,16 @@
                         <p class="header__cart-amount">2</p>
                     </div>
                     <div class="header__user">
-                        <img class="header__user-avatar" src="<?= URL_ICON?>/avatar.jpeg" alt="Avatar">
-                        <ul class="header__user-menu">
-                            <li>Profile</li>
-                            <li>Cart</li>
-                            <li>Log out</li>
-                        </ul>
+                        <?php if(isset($_SESSION["user"])) :?>
+                            <img class="header__user-avatar" src="<?= URL_USER ?><?= $_SESSION["user"]["avatar"] ?>" alt="Avatar">
+                            <ul class="header__user-menu">
+                                <a href=""><li>Profile</li></a>
+                                <a href=""><li>Cart</li></a>
+                                <a href="<?= DOCUMENT_ROOT ?>/accounts/logout"><li>Log out</li></a>
+                            </ul>
+                        <?php else : ?>
+                            <a href="<?= DOCUMENT_ROOT ?>/accounts"><button>Login</button></a>
+                        <?php endif; ?>
                     </div>
                     <div class="header__menu-mobile">
                         <input type="checkbox" class="header__mobile-nav-btn" id="mobile-check">

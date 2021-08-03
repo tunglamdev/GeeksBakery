@@ -36,8 +36,9 @@
     width: 100px;
     height: 2px;
     position: absolute;
-    left: 37.5%;
+    left: 50%;
     top:100%;
+    transform: translateX(-50%);
 }
 
 .category__list{
@@ -140,8 +141,9 @@
     width: 100px;
     height: 2px;
     position: absolute;
-    left: 25%;
+    left: 50%;
     top:100%;
+    transform: translateX(-50%);
 }
 
 .sell__content{
@@ -225,6 +227,7 @@
 
 .sell__content-add:hover{
     cursor: pointer;
+    background-color: #d72339;
 }
 
 .sell__btn{
@@ -276,8 +279,9 @@
     width: 100px;
     height: 2px;
     position: absolute;
-    left: 25%;
+    left: 50%;
     top:100%;
+    transform: translateX(-50%);
 }
 
 .sweeties__list{
@@ -397,6 +401,14 @@
 }
 
 .sweeties__menu-number:hover{
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 5px rgb(214, 59, 59);
+}
+
+.sweeties__menu-number--active{
     background-color: var(--main-color);
     color: white;
     cursor: pointer;

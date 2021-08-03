@@ -19,12 +19,14 @@
     defined("DATABASENAME") ?: define("DATABASENAME", $db["databasename"]);
     
     //public directory
+    defined("DOCUMENT_ROOT") ?: define("DOCUMENT_ROOT", "http://".$_SERVER["SERVER_NAME"].":81");
     defined("URL_PUBLIC") ?: define("URL_PUBLIC", "http://".$_SERVER["SERVER_NAME"].":81"."/public");
     defined("URL_CSS") ?: define("URL_CSS", URL_PUBLIC. "/css/");
     defined("URL_ICON") ?: define("URL_ICON", URL_PUBLIC. "/icon/");
     defined("URL_JS") ?: define("URL_JS", URL_PUBLIC. "/js/");
     defined("URL_CAKE") ?: define("URL_CAKE", URL_PUBLIC. "/img/cakes/");
     defined("URL_CATEGORY") ?: define("URL_CATEGORY", URL_PUBLIC. "/img/categories/");
+    defined("URL_USER") ?: define("URL_USER", URL_PUBLIC. "/img/users/");
 
     require_once CORE.DS."App.php";
     require_once CORE.DS."Controller.php";
