@@ -7,7 +7,7 @@ body {
 .card-img-left {
     width: 45%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://colorlib.com/etc/regform/colorlib-regform-2/images/bg-heading-02.jpg');
+    background: scroll center url('../icon/login.jpg');
     background-size: cover;
 }
 

@@ -91,7 +91,8 @@
 .header__personal{
     display: flex;
     justify-content: space-between;
-    width: 150px;
+    align-items: center;
+    width: 175px;
 }
 .header__cart{
     position: relative;
@@ -180,6 +181,23 @@
 .header__user ul>a>li:last-child{
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.btn-login{
+    width: 100px;
+    height: 40px;
+    border: 2px solid var(--main-color);
+    background-color: white;
+    border-radius: 20px;
+    font-family: var(--font-nunito);
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.btn-login:hover{
+    background-color: var(--main-color);
+    color: white;
+    cursor:pointer;
 }
 
 .header__menu-mobile{

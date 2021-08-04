@@ -1,16 +1,15 @@
 <?php
-    // require_once "../Core/Controller.php";
+
     use App\Core\Controller;
 
     class CakesController extends Controller{
         private $cakeModel;
-        // private $caketypeModel;
 
         function __construct(){
             $this->cakeModel = $this->model("CakeModel");
-            // $this->caketypeModel = $this->model("CakeTypeModel");
         }
 
+        //Get cakes to show on page and pagination
         function Index(){
             //Get the number of cakes in DB
             $numOfCake = $this->cakeModel->count();
@@ -45,22 +44,35 @@
             }
         }
 
-        //Get cake by categories to show
+        //Get cake by categories to show and pagination
         function categories(){
-            // $numOfCake = $this->cakeModel->count();
-            // $data["num_of_page"] = ceil($numOfCake/NUM_OF_CAKE_ON_PAGE);
-            
+            //Get cakes by cate
             if(!isset($_GET['id'])){
                 $idCate = 1;
             }
             else{
                 $idCate = $_GET['id'];
             }
-            $cakeByCate = $this->cakeModel->getByCategories($idCate);
+            $numOfCake = $this->cakeModel->countCakeByCategories($idCate);
+            $data["num_of_page"] = ceil($numOfCake/NUM_OF_CAKE_ON_PAGE);
+
+            if(!isset($_GET["page"]) || $_GET["page"]<1 || $_GET["page"]>$data["num_of_page"]){
+                $page=1;
+            }
+            else{
+                $page = $_GET["page"];
+            }
+
+            $limit = ($page - 1) * NUM_OF_CAKE_ON_PAGE;
+            $cakeByCate = $this->cakeModel->getByCategories($idCate, $limit, NUM_OF_CAKE_ON_PAGE);
             if(!$cakeByCate){
                 $cakeByCate=[];
             }
+
+            //Results saved
             $data["cake_to_show"] = $cakeByCate;
+            $data["page"] = $page;
+            $data["id_cate"] = $idCate; 
             $this->view("cakes/categories", $data);
         }
     }

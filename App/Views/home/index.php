@@ -33,7 +33,7 @@
                 </div>
                 <ul class="category__list">
                     <?php foreach($data["caketype"] as $index => $caketypes) : ?>
-                        <a href="<?= DOCUMENT_ROOT ?>/cakes/categories?id=<?= $caketypes["id"] ?>">
+                        <a href="<?= DOCUMENT_ROOT ?>/cakes/categories?id=<?= $caketypes["id"] ?>&page=1">
                             <li class="category__item">
                                 <img src="<?= URL_CATEGORY ?><?= $caketypes["image"]?>" alt="<?= $caketypes["name"]?>">
                                 <p class="category__item-name"><?= $caketypes["name"] ?></p>

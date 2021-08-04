@@ -26,7 +26,7 @@
                                 <a href="<?= DOCUMENT_ROOT ?>/accounts/logout"><li>Log out</li></a>
                             </ul>
                         <?php else : ?>
-                            <a href="<?= DOCUMENT_ROOT ?>/accounts"><button>Login</button></a>
+                            <a href="<?= DOCUMENT_ROOT ?>/accounts"><button class="btn-login">Login</button></a>
                         <?php endif; ?>
                     </div>
                     <div class="header__menu-mobile">

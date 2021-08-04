@@ -43,13 +43,13 @@
                 </ul>
                 <ul class="sweeties__menu">
                     <li>
-                        <a href="#"><img src="<?= URL_ICON ?>Arrow_1.svg" alt="Previous"></a>
+                        <a <?= $data['page']==1 ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT ?>/cakes/categories?id=<?= $data["id_cate"] ?>&page=<?= $data['page']-1 ?>"><img src="<?= URL_ICON ?>Arrow_1.svg" alt="Previous"></a>
                     </li>
-                    <a href="#"><li class="sweeties__menu-number">1</li></a>
-                    <a href="#"><li class="sweeties__menu-number">2</li></a>
-                    <a href="#"><li class="sweeties__menu-number">3</li></a>
+                    <?php for($i=1; $i<=$data["num_of_page"]; $i++) :?>
+                        <a <?= $i==$data['page'] ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT ?>/cakes/categories?id=<?= $data["id_cate"] ?>&page=<?= $i ?>"><li class="sweeties__menu-number <?= $i == $data['page'] ? "sweeties__menu-number--active" : "" ?>"><?= $i ?></li></a>
+                    <?php endfor; ?>
                     <li>
-                        <a href="#"><img src="<?= URL_ICON ?>Arrow_2.svg" alt="Next"></a>
+                        <a <?= $data['page']==$data["num_of_page"] ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT ?>/cakes/categories?id=<?= $data["id_cate"] ?>&page=<?= $data['page']+1 ?>"><img src="<?= URL_ICON ?>Arrow_2.svg" alt="Next"></a>
                     </li>
                 </ul>
             </div>
