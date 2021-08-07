@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?= URL_CSS ?>auth.css">
-<body>
   <div class="container">
     <div class="row">
       <div class="col-lg-10 col-xl-9 mx-auto">
@@ -13,8 +10,8 @@
             <form action="<?= DOCUMENT_ROOT?>/accounts/signin" method="POST">
 
               <div class="form-floating mb-3">
-                <input name="name" type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
-                <label for="floatingInputUsername">Username</label>
+                <input name="email" type="text" class="form-control" id="floatingInputEmail" placeholder="name@example.com" required autofocus>
+                <label for="floatingInputEmail">Email</label>
               </div>
 
               <hr>
@@ -50,4 +47,3 @@
       </div>
     </div>
   </div>
-</body>

@@ -19,8 +19,7 @@
 
         //Process register
         function signup(){
-            $result = $this->userModel->register($_POST);
-
+            $result = $this->userModel->register($_POST, $_FILES);
             if($result===true) $this->view("auth/login", []);
             else $this->view("auth/register", []);
         }

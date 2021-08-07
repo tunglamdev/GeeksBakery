@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geek's Cakes</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet" />
-    <link rel="stylesheet" href="<?= URL_CSS ?>base.css">
-    <link rel="stylesheet" href="<?= URL_CSS ?>header.css">
-    <link rel="stylesheet" href="<?= URL_CSS ?>reset.css">
-    <link rel="stylesheet" href="<?= URL_CSS ?>home.css">
-    <link rel="stylesheet" href="<?= URL_CSS ?>footer.css">
-</head>
-<body>
-    <!-- Header -->
-    <?php require_once VIEW."/shared/header.php" ?>
-    
-    <!-- Cakes -->
+<!-- Cakes -->
     <div class="wraper">
         <div class="container">
             <div class="sweeties">
@@ -33,10 +12,10 @@
                                 <img src="<?= URL_CAKE ?><?= $cakes["image"] ?>" alt="<?= $cakes["name"] ?>">
                                 <p class="sweeties__item-name"><?= $cakes["name"] ?></p>
                                 <div class="sweeties__item-price">
-                                    <p class="sweeties__item-new-price"><?= $cakes["price"] ?>đ</p>
+                                    <p class="sweeties__item-new-price"><?= number_format($cakes["price"],0, ',','.') ?>đ</p>
                                     <p class="sweeties__item-old-price">300.000đ</p>
                                 </div>
-                                <button class="sweeties__item-button" type="submit">Add to cart+</button>
+                                <button onclick="addToCart(<?= isset($_SESSION['user'])? $_SESSION['user']['id']: 0 ?> , <?= $cakes['id']?>)" class="sweeties__item-button" type="submit">Add to cart+</button>
                             </li>
                         </a>
                     <?php endforeach; ?>
@@ -55,8 +34,3 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <?php require_once VIEW."/shared/footer.php" ?>
-</body>
-</html>

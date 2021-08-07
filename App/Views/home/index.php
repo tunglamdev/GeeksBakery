@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geek's Bakery</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet" />
-    <link rel="stylesheet" href="<?= URL_CSS ?>base.css">
-    <link rel="stylesheet" href="<?= URL_CSS ?>header.css">
-    <link rel="stylesheet" href="<?= URL_CSS ?>reset.css">
-    <link rel="stylesheet" href="<?= URL_CSS ?>home.css">
-    <link rel="stylesheet" href="<?= URL_CSS ?>footer.css">
-</head>
-<body onload="currentSlide(1)">
-    <!-- Header -->
-    <?php require_once VIEW."/shared/header.php" ?>
-
-    <!-- Banner -->
+<!-- Banner -->
     <div class="banner">
         <img src="<?= URL_ICON ?>Banner.svg" alt="Banner">
     </div>
     
-    <!-- Categories -->
+<!-- Categories -->
     <div class="wraper">
         <div class="container">
             <div class="category">
@@ -46,7 +25,7 @@
         </div>
     </div>
 
-    <!-- Best Seller -->
+<!-- Best Seller -->
     <div class="sell">
         <div class="sell__button-left" onclick="pushSlide(-1)">
             <img src="<?= URL_ICON ?>Arrow_1.svg" alt="Previous">
@@ -81,7 +60,7 @@
         </div>
     </div>
 
-    <!-- Sweeties -->
+<!-- Sweeties -->
     <div class="wraper">
         <div class="container">
             <div class="sweeties">
@@ -90,17 +69,15 @@
                 </div>
                 <ul class="sweeties__list">
                     <?php foreach($data["cake_to_show"] as $index => $cakes) :?>
-                        <a href="#">
                             <li class="sweeties__item">
                                 <img src="<?= URL_CAKE ?><?= $cakes["image"] ?>" alt="<?= $cakes["name"] ?>">
                                 <p class="sweeties__item-name"><?= $cakes["name"] ?></p>
                                 <div class="sweeties__item-price">
-                                    <p class="sweeties__item-new-price"><?= $cakes["price"] ?>đ</p>
+                                    <p class="sweeties__item-new-price"><?= number_format($cakes["price"],0, ',','.') ?>đ</p>
                                     <p class="sweeties__item-old-price">300.000đ</p>
                                 </div>
-                                <button class="sweeties__item-button" type="submit">Add to cart+</button>
+                                <button onclick="addToCart(<?= isset($_SESSION['user'])? $_SESSION['user']['id']: 0 ?> , <?= $cakes['id']?>)" class="sweeties__item-button" type="submit">Add to cart+</button>
                             </li>
-                        </a>
                     <?php endforeach; ?>
                 </ul>
                 <ul class="sweeties__menu">
@@ -118,11 +95,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <?php require_once VIEW."/shared/footer.php" ?>
-
-    <!-- Javascript -->
+    
+<!-- AJAX for show cake in Best Seller -->
     <script src="<?= URL_JS ?>slideShow.js"></script>
-</body>
-</html>

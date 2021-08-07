@@ -33,10 +33,11 @@
                                 <img src="<?= URL_CAKE ?><?= $cakes["image"] ?>" alt="<?= $cakes["name"] ?>">
                                 <p class="sweeties__item-name"><?= $cakes["name"] ?></p>
                                 <div class="sweeties__item-price">
-                                    <p class="sweeties__item-new-price"><?= $cakes["price"] ?>đ</p>
+                                    <p class="sweeties__item-new-price"><?= number_format($cakes["price"],0, ',','.') ?>đ</p>
                                     <p class="sweeties__item-old-price">300.000đ</p>
                                 </div>
-                                <button class="sweeties__item-button" type="submit">Add to cart+</button>
+                                <!-- If not login => idUser = 0 -->
+                                <button onclick="addToCart(<?= isset($_SESSION['user'])? $_SESSION['user']['id']: 0 ?> , <?= $cakes['id']?>)" class="sweeties__item-button" type="submit">Add to cart+</button>
                             </li>
                         </a>
                     <?php endforeach; ?>

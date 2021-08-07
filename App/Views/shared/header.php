@@ -1,5 +1,5 @@
  <!-- Header -->
- <div class="wraper">
+    <div class="wraper">
         <div class="container">
             <div class="header">
                 <a class="header__logo" href="#"><img src="<?= URL_ICON ?>/Geek's Bakery 1.svg" alt="Geek's Bakery "></a>
@@ -15,7 +15,7 @@
                 <div class="header__personal">
                     <div class="header__cart">
                         <img class="header__cart-img" src="<?= URL_ICON ?>/bag.svg" alt="Giỏ hàng">
-                        <p class="header__cart-amount">2</p>
+                            <p id="numInCartId" class="header__cart-amount">0</p>
                     </div>
                     <div class="header__user">
                         <?php if(isset($_SESSION["user"])) :?>

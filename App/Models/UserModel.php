@@ -5,13 +5,19 @@
     class UserModel extends Database{
 
         //Add new user into database
-        function register($data){
+        function register($data, $file){
             $name = $data["name"];
             $password = password_hash($data["password"], PASSWORD_DEFAULT);
             $email = $data["email"];
+            $phone = $data["phone"];
+            $role=1;
+            $address = $data["address"];
 
-            $stmt = $this->conn->prepare("INSERT INTO users(id, name, email, password) VALUES(NULL, ?, ?, ?)");
-            $stmt->bind_param("sss", $name, $email, $password);
+            $avatar = $file["avatar"]["name"];
+            move_uploaded_file($file["avatar"]["tmp_name"], USER_IMG.$file["avatar"]["name"]);
+
+            $stmt = $this->conn->prepare("INSERT INTO users VALUES(NULL, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssis", $name, $phone, $address, $password, $email, $role, $avatar);
             $stmt->execute();
 
             $result = $stmt->affected_rows;
@@ -22,11 +28,11 @@
 
         //Authenticate when user login
         function authenticate($data){    
-            $name = $data["name"];
+            $email = $data["email"];
             $password = $data["password"];
 
-            $stmt = $this->conn->prepare("SELECT * FROM users WHERE name=?");
-            $stmt->bind_param("s", $name);
+            $stmt = $this->conn->prepare("SELECT * FROM users WHERE email=?");
+            $stmt->bind_param("s", $email);
             $stmt->execute();
             $result = $stmt->get_result();
 
