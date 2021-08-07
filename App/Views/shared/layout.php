@@ -23,6 +23,11 @@
 
 </head>
 <body onload=<?php strpos($view, 'home', 0) === false ? "" : "currentSlide(1)"?>>
+    <!-- Onload page -->
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
 
     <?php if(strpos($view, 'auth', 0) === false) : ?>
         <!-- Hearder -->
@@ -46,8 +51,13 @@
         <!-- Login & Register -->
         <?php require_once VIEW . DS . $view . ".php"?> 
     <?php endif; ?>
-
+    
     <!-- Javascript - AJAX -->
     <script src="<?= URL_JS ?>cart.js"></script>
+    <script>
+        $(window).on("load", function(){
+            $(".spinner").fadeOut("slow");
+        });
+    </script>
 </body>
 </html>
