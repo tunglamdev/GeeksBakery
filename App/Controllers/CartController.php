@@ -22,6 +22,9 @@
                 echo $result = $this->cartModel->countCakeInCart($_SESSION["user"]["id"]);
                 return;
             }
+            else{
+                echo "0";
+            }
         }
     }
 ?>
