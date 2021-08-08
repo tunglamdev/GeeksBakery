@@ -31,6 +31,9 @@
         </div>
     </div>
 
+    <!-- Hidden tag to use AJAX -->
+    <p id="documentRootId" hidden><?= DOCUMENT_ROOT ?></p>
+
     <?php if(strpos($view, 'auth', 0) === false) : ?>
         <!-- Hearder -->
         <?php require_once VIEW."/shared/header.php" ?>
@@ -40,27 +43,28 @@
 
         <!-- Footer -->
         <?php require_once VIEW. DS . "shared/footer.php" ?>
-
-        <!-- Hidden tag to use AJAX -->
-        <p id="documentRootId" hidden><?= DOCUMENT_ROOT ?></p>
         
         <!-- Toast messsage when adding cake to cart -->
         <div id="toast">
             <div id="img">Icon</div>
             <div id="desc">A notification message..</div>
         </div>
+
+        <!-- Javascript - AJAX -->
+        <script src="<?= URL_JS ?>cart.js"></script>
+        <script src="<?= URL_JS ?>cake.js"></script>
     <?php else :?>
         <!-- Login & Register -->
         <?php require_once VIEW . DS . $view . ".php"?> 
+        <script src="<?= URL_JS ?>auth.js"></script>
     <?php endif; ?>
     
-    <!-- Javascript - AJAX -->
-    <script src="<?= URL_JS ?>cart.js"></script>
     <script>
         window.addEventListener("load" , function(){
             const loader = document.querySelector(".loader");
             loader.className += " hidden";
         });
     </script>
+
 </body>
 </html>

@@ -8,39 +8,46 @@
           </div>
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-light fs-5">Register</h5>
-            <form action="<?= DOCUMENT_ROOT?>/accounts/signup" method="POST" enctype="multipart/form-data">
+            <form name="registerForm" action="<?= DOCUMENT_ROOT?>/accounts/signup" method="POST" enctype="multipart/form-data" onsubmit="return checkSignUp()">
 
               <div class="form-floating mb-3">
-                <input name="name" type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                <input name="name" type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" onchange="checkName(this.value)" require autofocus>
                 <label for="floatingInputUsername">Name<b style="color: red">(*)</b></label>
+                <p id="checkName" style="display: none ; color: red">Please enter your name</p>
               </div>
 
               <div class="form-floating mb-3">
-                <input name="email" type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
+                <input name="email" type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com" onchange="checkEmailAddress(this.value)" require>
                 <label for="floatingInputEmail">Email address<b style="color: red">(*)</b></label>
+                <p id="checkEmail" style="display: none ; color: red">Please enter your email</p>
+                <p id="checkEmailExist" style="display: none ; color: red">Email is already exist</p>
               </div>
 
               <hr>
 
               <div class="form-floating mb-3">
-                <input name="password"type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input name="password"type="password" class="form-control" id="floatingPassword" placeholder="Password" require>
                 <label for="floatingPassword">Password<b style="color: red">(*)</b></label>
+                <p id="checkPassword" style="display: none ; color: red">Please enter your password</p>
               </div>
 
               <div class="form-floating mb-3">
-                <input name="re-password" type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password">
+                <input name="re-password" type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password" require>
                 <label for="floatingPasswordConfirm">Confirm Password<b style="color: red">(*)</b></label>
+                <p id="checkPrePassword" style="display: none ; color: red">Password is wrong or invalid</p>
               </div>
 
               <hr>
 
               <div class="form-floating mb-3">
-                <input name="phone" type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                <input name="phone" type="text" class="form-control" id="floatingInputPhone" placeholder="myusername" require>
                 <label for="floatingInputUsername">Phone number<b style="color: red">(*)</b></label>
+                <p id="checkPhone" style="display: none ; color: red">Please enter your phone number</p>
               </div>
               <div class="form-floating mb-3">
-                <input name="address" type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                <input name="address" type="text" class="form-control" id="floatingInputAddress" placeholder="myusername" require>
                 <label for="floatingInputUsername">Address<b style="color: red">(*)</b></label>
+                <p id="checkAddress" style="display: none ; color: red">Please enter your address</p>
               </div>
 
               <hr>

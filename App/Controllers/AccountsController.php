@@ -41,5 +41,10 @@
             session_destroy();
             header("Location: ".DOCUMENT_ROOT."/accounts");
         }
+
+        //Check email register
+        function checkEmail(){
+            echo $result = $this->userModel->checkEmailExist($_GET["email"]) ;
+        }
     }
 ?>

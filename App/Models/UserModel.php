@@ -46,5 +46,18 @@
             }
             else return "Name does not exist!";
         }
+
+        //Get email
+        function checkEmailExist($email){    
+            $stmt = $this->conn->prepare("SELECT * FROM users WHERE email=?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows >0){
+                return true;
+            }
+            else return false;
+        }
     }
 ?>
