@@ -37,25 +37,30 @@
 
         //Search cakes by key
         function search(){
-            $key = $_GET["keyword"];
+            $key = $_GET["key"];
             $cakes = $this->cakeModel->getByKey($key);
             if(!$cakes){
                 $cakes=[];
             }
+            $data["cake_to_show"] = $cakes;
+            $this->view("cakes/search", $data);
         }
 
         //Get cake by categories to show and pagination
         function categories(){
-            //Get cakes by cate
+            //Process idCate
             if(!isset($_GET['id'])){
                 $idCate = 1;
             }
             else{
                 $idCate = $_GET['id'];
             }
+
+            //Count the number of pages
             $numOfCake = $this->cakeModel->countCakeByCategories($idCate);
             $data["num_of_page"] = ceil($numOfCake/NUM_OF_CAKE_ON_PAGE);
 
+            //Process page
             if(!isset($_GET["page"]) || $_GET["page"]<1 || $_GET["page"]>$data["num_of_page"]){
                 $page=1;
             }
@@ -63,6 +68,7 @@
                 $page = $_GET["page"];
             }
 
+            //Get cakes by categories
             $limit = ($page - 1) * NUM_OF_CAKE_ON_PAGE;
             $cakeByCate = $this->cakeModel->getByCategories($idCate, $limit, NUM_OF_CAKE_ON_PAGE);
             if(!$cakeByCate){

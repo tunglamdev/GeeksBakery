@@ -10,7 +10,9 @@
                 </div>
                 <div class="header__search">
                     <img src="<?= URL_ICON ?>/loupe.png" alt="Tìm kiếm">
-                    <input placeholder="Search..." class="button" type="text">
+                    <form action="<?= DOCUMENT_ROOT ?>/cakes/search" method="get">
+                        <input placeholder="Search..." class="button" type="text" name="key" id="search">
+                    </form>
                 </div>
                 <div class="header__personal">
                     <div class="header__cart">

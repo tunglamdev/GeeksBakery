@@ -53,11 +53,13 @@
             $result = $stmt->get_result();
 
             if($result->num_rows >0){
-                return $result->fetch_all(MYSQLI_ASSOC);
+                $cakes = $result->fetch_all(MYSQLI_ASSOC);
             }
             else{
-                return false;
+                $cakes =[];
             }
+
+            return $cakes;
         }
 
         //Get cakes by categories to show on page
