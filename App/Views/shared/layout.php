@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geek's Bakery</title>
-    
+    <link href="<?= URL_FONT ?>fontawesome/css/all.css" rel="stylesheet">
     <?php if(strpos($view, 'auth', 0) === false) : ?>
         <link rel="stylesheet" href="<?= URL_CSS ?>base.css">
         <link rel="stylesheet" href="<?= URL_CSS ?>header.css">
@@ -46,7 +46,7 @@
         
         <!-- Toast messsage when adding cake to cart -->
         <div id="toast">
-            <div id="img">Icon</div>
+            <div id="img" class="img"><i class="fas fa-check-square"></i></div>
             <div id="desc">A notification message..</div>
         </div>
 
