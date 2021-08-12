@@ -3,14 +3,18 @@
 
     class UsersController extends Controller{
         private $userModel;
+        private $orderModel;
 
         function __construct(){
             $this->userModel = $this->model("UserModel");
+            $this->orderModel = $this->model("OrderModel");
         }
 
         function Index(){
-            $result = $this->userModel->getInfor($_SESSION["user"]["id"]);
-            $data["user"] = $result;
+            $data["user"] = $this->userModel->getInfor($_SESSION["user"]["id"]);
+
+            $data["delivered-order"] = $this->orderModel->getDeliveredOrders($_SESSION["user"]["id"]);
+            
             $this->view("users/index", $data);
         }
 

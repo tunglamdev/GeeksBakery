@@ -47,33 +47,36 @@
     <h3>History</h3>
     <div class="wraper">
         <div class="container">
-            <div class="history">
-                <div class="history-title">Bill-ID: #69</div>
-                
-                <div class="history-content">
-                   <div class="history-content-img">
-                        <img src="<?= URL_CAKE ?>12.3.jpg" alt="" class=>
-                   </div>
-
-                   <div class="history-content-decs">
-                       <p class="cake-name">Chocolate</p>
-                       <p class="cake-size">Size: 23cm</p>
-                       <p class="cake-price" style="color: var(--main-color)">Price: 200.000 VND</p>
-                       <p class="cake-quantity">Quantity: 2</p>
-                   </div>
-                </div>
-
-                <div class="history-ending">
-                    <div class="history-ending1">
-                        <p class="history-ending-content">Total: </p>
-                        <p class="history-ending-content" style="color: var(--main-color)">400.000 VND</p>
+            <?php foreach($data["delivered-order"] as $index => $orders) :?>
+                <div class="history">
+                    <div class="history-title">Bill-ID: #69</div>
+                    
+                    <div class="history-content">
+                    <div class="history-content-img">
+                            <img src="<?= URL_CAKE ?>12.3.jpg" alt="" class=>
                     </div>
-                    <div class="history-ending2">
-                        <p class="history-ending-content">Status: </p>
-                        <p class="history-ending-content" style="color: var(--main-color)">Đã giao</p>
+
+                    <div class="history-content-decs">
+                        <p class="cake-name">Chocolate</p>
+                        <p class="cake-size">Size: 23cm</p>
+                        <p class="cake-price" style="color: var(--main-color)">Price: 200.000 VND</p>
+                        <p class="cake-quantity">Quantity: 2</p>
+                    </div>
+                    </div>
+
+                    <div class="history-ending">
+                        <div class="history-ending1">
+                            <p class="history-ending-content">Total: </p>
+                            <p class="history-ending-content" style="color: var(--main-color)">400.000 VND</p>
+                        </div>
+                        <div class="history-ending2">
+                            <p class="history-ending-content">Status: </p>
+                            <p class="history-ending-content" style="color: var(--main-color)">Đã giao</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach;?>
+            
 
             <div class="history">
                 <div class="history-title">Bill-ID: #69</div>
