@@ -23,7 +23,7 @@
                         <?php if(isset($_SESSION["user"])) :?>
                             <img class="header__user-avatar" src="<?= URL_USER ?><?= $_SESSION["user"]["avatar"] ?>" alt="Avatar">
                             <ul class="header__user-menu">
-                                <a href="<?= DOCUMENT_ROOT ?>/users">"><li>Profile</li></a>
+                                <a href="<?= DOCUMENT_ROOT ?>/users"><li>Profile</li></a>
                                 <a href=""><li>Cart</li></a>
                                 <a href="<?= DOCUMENT_ROOT ?>/accounts/logout"><li>Log out</li></a>
                             </ul>
@@ -44,9 +44,9 @@
                             <ul class="header__mobile-nav-list">
                                 <a href="<?= DOCUMENT_ROOT ?>/home"><li class="header__mobile-nav-link">Home</li></a>
                                 <a href="<?= DOCUMENT_ROOT ?>/cakes"><li class="header__mobile-nav-link">Cakes</li></a>
-                                <a href=""><li class="header__mobile-nav-link">About</li></a>
+                                <a href="#"><li class="header__mobile-nav-link">About</li></a>
                                 <a href="<?= DOCUMENT_ROOT ?>/users"><li class="header__mobile-nav-link">Profile</li></a>
-                                <a href=""><li class="header__mobile-nav-link">Cart</li></a>
+                                <a href="#"><li class="header__mobile-nav-link">Cart</li></a>
                                 <a href="<?= DOCUMENT_ROOT ?>/accounts/logout"><li class="header__mobile-nav-link">Log out</li></a>
                             </ul>
                         </div>

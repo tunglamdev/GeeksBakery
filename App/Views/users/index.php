@@ -4,26 +4,26 @@
         <div class="container">
             <div class="profile">
                 <div class="user-info">
-                    <form action="" class="profile-form">
+                    <form action="<?= DOCUMENT_ROOT ?>/users/update" class="profile-form" method="post">
                         <div class="form-content">
                             <div class="form-items">
-                                <p class="input-name">Username</p>
-                                <input type="text" id="username">                        
+                                <p class="input-name">Name</p>
+                                <input name="name" type="text" id="username" value="<?= $data['user']['name']?>">                        
                             </div>
 
                             <div class="form-items">
                                 <p class="input-name">Email</p>
-                                <input type="text" id="email">                        
+                                <input name="email" type="text" id="email" value="<?= $data['user']['email'] ?>">                        
                             </div>
 
                             <div class="form-items">
                                 <p class="input-name">Phone</p>
-                                <input type="text" id="phone">                        
+                                <input name="phone" type="text" id="phone" value="<?= $data['user']['phone'] ?>">                        
                             </div>
 
                             <div class="form-items">
                                 <p class="input-name">Address</p>
-                                <input type="text" id="address">
+                                <input name="address" type="text" id="address" value="<?= $data['user']['address'] ?>">
                             </div>
                         </div>
                         <input id="btn-save" type="submit" value="Save">
@@ -32,9 +32,9 @@
 
                 <div class="user-avatar">
                     <h3 class="avatar-title">Avatar</h3>
-                    <img class ="avatar-img" src="<?= URL_USER ?>avatar3.jpg" alt="" srcset="">
-                    <p class="avatar-name">Nguyen Tung Lam</p>
-                    <form action="">
+                    <img class ="avatar-img" src="<?= URL_USER ?><?= $data["user"]["avatar"]?>" alt="" srcset="">
+                    <p class="avatar-name"><?= $data["user"]["name"]?></p>
+                    <form action="<?= DOCUMENT_ROOT ?>/users/upload" method="post">
                         <input type="file" name="file" id="file">
                         <label for="file">Upload image</label>
                     </form>
