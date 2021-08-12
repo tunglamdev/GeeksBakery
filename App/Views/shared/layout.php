@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="<?= URL_CSS ?>reset.css">
         <link rel="stylesheet" href="<?= URL_CSS ?>home.css">
         <link rel="stylesheet" href="<?= URL_CSS ?>footer.css">
+        <link rel="stylesheet" href="<?= URL_CSS ?>profile.css">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
