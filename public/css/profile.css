@@ -37,12 +37,14 @@
 }
 
 .form-items input[type="text"]{
-    width: 480px;
+    width: 500px;
     margin: 12px 0;
+    padding-left: 20px;
     height: 40px;
-    border-radius: 30px;
+    border-radius: 40px;
     border: 2px solid rgb(214, 209, 209);
-    background-color: rgb(247, 247, 247);;
+    background-color: rgb(247, 247, 247);
+    box-sizing: border-box;
 }
 
 .form-items input[type="text"]:focus{
