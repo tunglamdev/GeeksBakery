@@ -55,8 +55,7 @@
         function update(){
             $result = $this->userModel->updateInfor($_SESSION["user"]["id"] , $_POST);
             if($result==true){
-                $data["user"] = $this->userModel->getInfor($_SESSION["user"]["id"]);
-                $this->view("users/index", $data);
+                $this->Index();
             }
             else echo "Update fail!";
         }
@@ -64,8 +63,7 @@
         function upload(){
             $result = $this->userModel->uploadAvatar($_SESSION["user"]["id"] , $_FILES);
             if($result==true){
-                $data["user"] = $this->userModel->getInfor($_SESSION["user"]["id"]);
-                $this->view("users/index", $data);
+                $this->Index();
             }
             else echo "Update fail!";
         }
