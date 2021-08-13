@@ -508,15 +508,17 @@
     .sweeties__title h2::after{
         content: "";
         border-bottom: 2px solid #333;
-        width: 70px;
-        left: 15%;
+        width: 60px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .sell__title h2::after{
         content: "";
         border-bottom: 2px solid #333;
-        width: 70px;
-        left: 22%;
+        width: 60px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .sell__content-title{

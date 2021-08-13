@@ -201,7 +201,7 @@
 }
 
 .header__menu-mobile{
-    padding-top: 22px;
+    padding-top: 10px;
     position: relative;
     display: none;
 }
@@ -304,6 +304,15 @@
     .header__cart, .header__user{
         display: none;
     }
+
+    .header__menu-mobile-img img{
+        width: 36px;
+    }
+
+    .header__personal{
+        width: 60px;
+        justify-content: space-evenly;
+    }
 }
 
 /* Tablet */
@@ -329,11 +338,6 @@
     
     .header__cart, .header__user{
         display: none;
-    }
-
-    .header__personal{
-        width: 200px;
-        justify-content: space-evenly;
     }
 
     .header{
