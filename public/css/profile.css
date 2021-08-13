@@ -124,7 +124,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 350px;
+    width: 450px;
     margin: 20px 40px;
     font-family: var(--font-poppin);
 }
@@ -133,6 +133,10 @@
     width: 170px;
     height: 150px;
     border-radius: 12px;
+}
+
+.history-content-decs{
+    width: 250px;
 }
 
 .history-ending-content{
@@ -183,6 +187,11 @@ h3{
 
     .history-content{
         margin: 20px 10px;
+        width: 350px;
+    }
+
+    .history-content-decs{
+        width: 160px;
     }
 }
 

@@ -47,130 +47,144 @@
     <h3>History</h3>
     <div class="wraper">
         <div class="container">
-            <?php foreach($data["delivered-order"] as $index => $orders) :?>
+            <!-- No processed Orders -->
+            <?php foreach($data["noProcessedOrders"] as $index => $orders) :?>
                 <div class="history">
-                    <div class="history-title">Bill-ID: #69</div>
+                    <?php $total = 0; ?>
+                    <div class="history-title">Bill-ID: #<?= $orders["id"] ?></div>
                     
-                    <div class="history-content">
-                    <div class="history-content-img">
-                            <img src="<?= URL_CAKE ?>12.3.jpg" alt="" class=>
-                    </div>
+                    <?php foreach($data[$orders["id"]]["cakes"] as $i => $cakes) :?>
+                        <div class="history-content">
+                            <div class="history-content-img">
+                                    <img src="<?= URL_CAKE ?><?= $cakes['image'] ?>" alt="" class=>
+                            </div>
 
-                    <div class="history-content-decs">
-                        <p class="cake-name">Chocolate</p>
-                        <p class="cake-size">Size: 23cm</p>
-                        <p class="cake-price" style="color: var(--main-color)">Price: 200.000 VND</p>
-                        <p class="cake-quantity">Quantity: 2</p>
-                    </div>
-                    </div>
+                            <div class="history-content-decs">
+                                <p class="cake-name"><?= $cakes['name'] ?></p>
+                                <p class="cake-size">Size: <?= $cakes['size'] ?>cm</p>
+                                <p class="cake-price" style="color: var(--main-color)">Price: <?= number_format($cakes["price"],0, ',','.') ?> VND</p>
+                                <p class="cake-quantity">Quantity: <?= $cakes['amount'] ?></p>
+                            </div>
+                        </div>
+                        <?php $total = $total + $cakes['price'] * $cakes['amount'] ?>
+                    <?php endforeach; ?>
 
                     <div class="history-ending">
                         <div class="history-ending1">
                             <p class="history-ending-content">Total: </p>
-                            <p class="history-ending-content" style="color: var(--main-color)">400.000 VND</p>
+                            <p class="history-ending-content" style="color: var(--main-color)"><?= number_format($total,0, ',','.') ?> VND</p>
                         </div>
                         <div class="history-ending2">
                             <p class="history-ending-content">Status: </p>
-                            <p class="history-ending-content" style="color: var(--main-color)">Đã giao</p>
+                            <p class="history-ending-content" style="color: var(--main-color)">Delivered</p>
                         </div>
                     </div>
                 </div>
             <?php endforeach;?>
-            
 
-            <div class="history">
-                <div class="history-title">Bill-ID: #69</div>
-                
-                <div class="history-content">
-                   <div class="history-content-img">
-                        <img src="<?= URL_CAKE ?>12.3.jpg" alt="" class=>
-                   </div>
+            <!-- Prepairing Orders -->
+            <?php foreach($data["prepairingOrders"] as $index => $orders) :?>
+                <div class="history">
+                    <?php $total = 0; ?>
+                    <div class="history-title">Bill-ID: #<?= $orders["id"] ?></div>
+                    
+                    <?php foreach($data[$orders["id"]]["cakes"] as $i => $cakes) :?>
+                        <div class="history-content">
+                            <div class="history-content-img">
+                                    <img src="<?= URL_CAKE ?><?= $cakes['image'] ?>" alt="" class=>
+                            </div>
 
-                   <div class="history-content-decs">
-                       <p class="cake-name">Chocolate</p>
-                       <p class="cake-size">Size: 23cm</p>
-                       <p class="cake-price" style="color: var(--main-color)">Price: 200.000 VND</p>
-                       <p class="cake-quantity">Quantity: 2</p>
-                   </div>
-                </div>
+                            <div class="history-content-decs">
+                                <p class="cake-name"><?= $cakes['name'] ?></p>
+                                <p class="cake-size">Size: <?= $cakes['size'] ?>cm</p>
+                                <p class="cake-price" style="color: var(--main-color)">Price: <?= number_format($cakes["price"],0, ',','.') ?> VND</p>
+                                <p class="cake-quantity">Quantity: <?= $cakes['amount'] ?></p>
+                            </div>
+                        </div>
+                        <?php $total = $total + $cakes['price'] * $cakes['amount'] ?>
+                    <?php endforeach; ?>
 
-                <div class="history-content">
-                   <div class="history-content-img">
-                        <img src="<?= URL_CAKE ?>12.3.jpg" alt="" class=>
-                   </div>
-
-                   <div class="history-content-decs">
-                       <p class="cake-name">Chocolate</p>
-                       <p class="cake-size">Size: 23cm</p>
-                       <p class="cake-price" style="color: var(--main-color)">Price: 200.000 VND</p>
-                       <p class="cake-quantity">Quantity: 2</p>
-                   </div>
-                </div>
-
-                <div class="history-content">
-                   <div class="history-content-img">
-                        <img src="<?= URL_CAKE ?>12.3.jpg" alt="" class=>
-                   </div>
-
-                   <div class="history-content-decs">
-                       <p class="cake-name">Chocolate</p>
-                       <p class="cake-size">Size: 23cm</p>
-                       <p class="cake-price" style="color: var(--main-color)">Price: 200.000 VND</p>
-                       <p class="cake-quantity">Quantity: 2</p>
-                   </div>
-                </div>
-
-                <div class="history-ending">
-                    <div class="history-ending1">
-                        <p class="history-ending-content">Total: </p>
-                        <p class="history-ending-content" style="color: var(--main-color)">400.000 VND</p>
-                    </div>
-                    <div class="history-ending2">
-                        <p class="history-ending-content">Status: </p>
-                        <p class="history-ending-content" style="color: var(--main-color)">Đã giao</p>
+                    <div class="history-ending">
+                        <div class="history-ending1">
+                            <p class="history-ending-content">Total: </p>
+                            <p class="history-ending-content" style="color: var(--main-color)"><?= number_format($total,0, ',','.') ?> VND</p>
+                        </div>
+                        <div class="history-ending2">
+                            <p class="history-ending-content">Status: </p>
+                            <p class="history-ending-content" style="color: var(--main-color)">Delivered</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach;?>
 
-            <div class="history">
-                <div class="history-title">Bill-ID: #69</div>
-                
-                <div class="history-content">
-                   <div class="history-content-img">
-                        <img src="<?= URL_CAKE ?>12.3.jpg" alt="" class=>
-                   </div>
+            <!-- Delivering orders -->
+            <?php foreach($data["deliveringOrders"] as $index => $orders) :?>
+                <div class="history">
+                    <?php $total = 0; ?>
+                    <div class="history-title">Bill-ID: #<?= $orders["id"] ?></div>
+                    
+                    <?php foreach($data[$orders["id"]]["cakes"] as $i => $cakes) :?>
+                        <div class="history-content">
+                            <div class="history-content-img">
+                                    <img src="<?= URL_CAKE ?><?= $cakes['image'] ?>" alt="" class=>
+                            </div>
 
-                   <div class="history-content-decs">
-                       <p class="cake-name">Chocolate</p>
-                       <p class="cake-size">Size: 23cm</p>
-                       <p class="cake-price" style="color: var(--main-color)">Price: 200.000 VND</p>
-                       <p class="cake-quantity">Quantity: 2</p>
-                   </div>
-                </div>
+                            <div class="history-content-decs">
+                                <p class="cake-name"><?= $cakes['name'] ?></p>
+                                <p class="cake-size">Size: <?= $cakes['size'] ?>cm</p>
+                                <p class="cake-price" style="color: var(--main-color)">Price: <?= number_format($cakes["price"],0, ',','.') ?> VND</p>
+                                <p class="cake-quantity">Quantity: <?= $cakes['amount'] ?></p>
+                            </div>
+                        </div>
+                        <?php $total = $total + $cakes['price'] * $cakes['amount'] ?>
+                    <?php endforeach; ?>
 
-                <div class="history-content">
-                   <div class="history-content-img">
-                        <img src="<?= URL_CAKE ?>12.3.jpg" alt="" class=>
-                   </div>
-
-                   <div class="history-content-decs">
-                       <p class="cake-name">Chocolate</p>
-                       <p class="cake-size">Size: 23cm</p>
-                       <p class="cake-price" style="color: var(--main-color)">Price: 200.000 VND</p>
-                       <p class="cake-quantity">Quantity: 2</p>
-                   </div>
-                </div>
-
-                <div class="history-ending">
-                    <div class="history-ending1">
-                        <p class="history-ending-content">Total: </p>
-                        <p class="history-ending-content" style="color: var(--main-color)">400.000 VND</p>
-                    </div>
-                    <div class="history-ending2">
-                        <p class="history-ending-content">Status: </p>
-                        <p class="history-ending-content" style="color: var(--main-color)">Đã giao</p>
+                    <div class="history-ending">
+                        <div class="history-ending1">
+                            <p class="history-ending-content">Total: </p>
+                            <p class="history-ending-content" style="color: var(--main-color)"><?= number_format($total,0, ',','.') ?> VND</p>
+                        </div>
+                        <div class="history-ending2">
+                            <p class="history-ending-content">Status: </p>
+                            <p class="history-ending-content" style="color: var(--main-color)">Delivering</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach;?>
+
+            <!-- Delivered Orders -->
+            <?php foreach($data["deliveredOrders"] as $index => $orders) :?>
+                <div class="history">
+                    <?php $total = 0; ?>
+                    <div class="history-title">Bill-ID: #<?= $orders["id"] ?></div>
+                    
+                    <?php foreach($data[$orders["id"]]["cakes"] as $i => $cakes) :?>
+                        <div class="history-content">
+                            <div class="history-content-img">
+                                    <img src="<?= URL_CAKE ?><?= $cakes['image'] ?>" alt="" class=>
+                            </div>
+
+                            <div class="history-content-decs">
+                                <p class="cake-name"><?= $cakes['name'] ?></p>
+                                <p class="cake-size">Size: <?= $cakes['size'] ?>cm</p>
+                                <p class="cake-price" style="color: var(--main-color)">Price: <?= number_format($cakes["price"],0, ',','.') ?> VND</p>
+                                <p class="cake-quantity">Quantity: <?= $cakes['amount'] ?></p>
+                            </div>
+                        </div>
+                        <?php $total = $total + $cakes['price'] * $cakes['amount'] ?>
+                    <?php endforeach; ?>
+
+                    <div class="history-ending">
+                        <div class="history-ending1">
+                            <p class="history-ending-content">Total: </p>
+                            <p class="history-ending-content" style="color: var(--main-color)"><?= number_format($total,0, ',','.') ?> VND</p>
+                        </div>
+                        <div class="history-ending2">
+                            <p class="history-ending-content">Status: </p>
+                            <p class="history-ending-content" style="color: var(--main-color)">Delivered</p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach;?>
         </div>
     </div>
