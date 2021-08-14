@@ -23,9 +23,9 @@
                     <?php if(isset($_SESSION["user"])) :?>
                         <img class="header__user-avatar" src="<?= URL_USER ?><?= $_SESSION["user"]["avatar"] ?>" alt="Avatar">
                         <ul class="header__user-menu">
-                            <a href="<?= DOCUMENT_ROOT ?>/users"><li>Profile</li></a>
-                            <a href=""><li>Cart</li></a>
-                            <a href="<?= DOCUMENT_ROOT ?>/accounts/logout"><li>Log out</li></a>
+                            <li><a href="<?= DOCUMENT_ROOT ?>/users">Profile</a></li>
+                            <li><a href="">Cart</a></li>
+                            <li><a href="<?= DOCUMENT_ROOT ?>/accounts/logout">Log out</a></li>
                         </ul>
                     <?php else : ?>
                         <a href="<?= DOCUMENT_ROOT ?>/accounts"><button class="btn-login">Login</button></a>

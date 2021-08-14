@@ -161,26 +161,40 @@
 
 .header__user ul li{
     width: 150px;
+    height: 50px;
     box-sizing: border-box;
     padding: 15px 10px 15px 10px;
     background-color: white;
     text-align: center;
+    position: relative;
 }
 
 .header__user ul li:hover{
     background-color: rgb(226, 222, 222);
     cursor: pointer;
-    color: var(--main-color);
 }
 
-.header__user ul>a>li:first-child{
+.header__user ul>li:first-child{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-.header__user ul>a>li:last-child{
+.header__user ul>li:last-child{
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.header__user ul li a{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 50px;
+}
+
+.header__user ul li a:hover{
+    color: var(--main-color);
 }
 
 .btn-login{
