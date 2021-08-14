@@ -76,7 +76,7 @@
                         </div>
                         <div class="history-ending2">
                             <p class="history-ending-content">Status: </p>
-                            <p class="history-ending-content" style="color: var(--main-color)">Delivered</p>
+                            <p class="history-ending-content" style="color: var(--main-color)">Not processed</p>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                         </div>
                         <div class="history-ending2">
                             <p class="history-ending-content">Status: </p>
-                            <p class="history-ending-content" style="color: var(--main-color)">Delivered</p>
+                            <p class="history-ending-content" style="color: var(--main-color)">Prepairing</p>
                         </div>
                     </div>
                 </div>

@@ -301,17 +301,12 @@
     .header__menu-mobile{
         display: block;
     }
-    .header__cart, .header__user{
+    .header__cart{
         display: none;
     }
 
     .header__menu-mobile-img img{
         width: 36px;
-    }
-
-    .header__personal{
-        width: 60px;
-        justify-content: space-evenly;
     }
 }
 
@@ -319,10 +314,6 @@
 @media only screen and (min-width: 740px) and (max-width: 1024px){
     .header__search, .header__search input[type="text"]{
         width: 450px;
-    }
-
-    .header__cart, .header__user{
-        display: none;
     }
 }
 
@@ -333,10 +324,6 @@
     }
 
     .header__search{
-        display: none;
-    }
-    
-    .header__cart, .header__user{
         display: none;
     }
 
@@ -353,13 +340,12 @@
     } 
 
     .header__logo{
-        width: 100px;
+        width: 240px;
     }
     
     .header__logo img{
-        width: 100px;
+        width: 90px;
         height: 75px;
-        margin-right: 80px;
     }
 
 }

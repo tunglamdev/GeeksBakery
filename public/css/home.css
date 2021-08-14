@@ -292,8 +292,6 @@
 
 
 .sweeties__item{
-    /* border: 1px solid transparent; */
-    /* box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.13); */
     width: 250px;
     height: 370px;
     border-radius: 20px;
@@ -307,7 +305,6 @@
 
 .sweeties__item:hover{
     cursor: pointer;
-    /* border: 1px solid var(--main-color); */
     box-shadow: 2px 2px 16px rgba(240, 174, 174, 0.973);
 }
 
@@ -427,6 +424,7 @@
 .sweeties__menu img{
     margin: 5px 5px 0 5px;
 }
+
 .sweeties__menu img:hover{
     cursor: pointer;
     box-shadow: 0 0 5px rgb(117, 115, 115);
