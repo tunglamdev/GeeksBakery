@@ -53,7 +53,7 @@
 
         <!-- Javascript - AJAX -->
         <script src="<?= URL_JS ?>cart.js"></script>
-        <script src="<?= URL_JS ?>cake.js"></script>
+    
     <?php else :?>
         <!-- Login & Register -->
         <?php require_once VIEW . DS . $view . ".php"?> 
