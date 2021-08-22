@@ -16,11 +16,22 @@
 
         // Call view
         function view($view, $data=[]){
-            if(file_exists(VIEW . DS . $view . ".php")){
-                require_once VIEW . DS . "shared/layout.php";
+            if($GLOBALS["isAdmin"]==true){
+                if(file_exists(VIEW . DS . "admin". DS . $view . ".php")){
+                    require_once VIEW . DS . "admin/shared/layout.php";
+                }
+                else{
+                    echo "Not found view: ".$view;
+                }
+
             }
             else{
-                echo "Not found view: ".$view;
+                if(file_exists(VIEW . DS . $view . ".php")){
+                    require_once VIEW . DS . "shared/layout.php";
+                }
+                else{
+                    echo "Not found view: ".$view;
+                }
             }
         }
     }

@@ -30,6 +30,10 @@
     defined("URL_CATEGORY") ?: define("URL_CATEGORY", URL_PUBLIC. "/img/categories/");
     defined("URL_USER") ?: define("URL_USER", URL_PUBLIC. "/img/users/");
 
+    //Admin sidebar
+    $adminSidebar = require_once CONF."/Admin_SideBar.php";
+    defined("AdminSideBar") ?: define("AdminSideBar", $adminSidebar);
+
     require_once CORE.DS."App.php";
     require_once CORE.DS."Controller.php";
     require_once CORE.DS."Database.php";
