@@ -2,8 +2,16 @@
     use App\Core\Controller;
 
     class CategoriesController extends Controller{
-        function Index(){
+        private $cakeTypeModel;
+        function __construct(){
+            $this->cakeTypeModel = $this->model("CakeTypeModel");
+        }
 
+        function Index(){
+            $result = $this->cakeTypeModel->all();
+            if ($result != false) $data["cake"] = $result;
+            
+            $this->view("categories/index", $data);
         }
     }
 ?>

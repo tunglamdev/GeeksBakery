@@ -1,14 +1,14 @@
 <!-- Content Header (Page header) -->
-    <section class="content-header">
+<section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cakes</h1>
+            <h1>Categories</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT?>/admin">Home</a></li>
-              <li class="breadcrumb-item active">Cakes</li>
+              <li class="breadcrumb-item active">Categories</li>
             </ol>
           </div>
         </div>
@@ -28,11 +28,7 @@
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Price</th>
-                    <th>Size</th>
-                    <th>Type</th>
                     <th>Image</th>
-                    <th>Description</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -41,13 +37,9 @@
                     <tr>
                       <td><?= $key + 1 ?></td>
                       <td><?= $cake["name"] ?></td>
-                      <td><?= $cake["price"] ?></td>
-                      <td><?= $cake["size"] ?></td>
-                      <td><?= $cake["id_cake_type"] ?></td>
                       <td>
-                      <img src="<?= URL_CAKE?><?= $cake["image"] ?>" class="rounded" alt="..." style="width: 100px">
+                      <img src="<?= URL_CATEGORY?><?= $cake["image"] ?>" class="rounded" alt="..." style="width: 100px">
                       </td>
-                      <td><?= $cake["description"] ?></td>
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                           <button type="button" class="btn btn-info">Edit</button>
