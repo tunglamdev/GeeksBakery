@@ -92,5 +92,29 @@
             }
         }
 
+        // Admin
+        //Create new cake processing
+        function insert($data){
+            $cate = $data["cate"];
+            $name = $data["name"];
+            $size = $data["size"];
+            $price = $data["price"];
+            $des = $data["des"];
+            $image = $data["image"];
+
+            $stmt = $this->conn->prepare("INSERT INTO cakes VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("siisis",$name, $price, $size, $des, $cate, $image);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+
+            if($result>0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+
     }
 ?>

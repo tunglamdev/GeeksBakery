@@ -10,7 +10,8 @@
     defined("CORE") ?: define("CORE", APP . DS . "Core");
     defined("MODEL") ?: define("MODEL", APP . DS . "Models");
     defined("VIEW") ?: define("VIEW", APP . DS . "Views");
-    defined("USER_IMG") ?: define("USER_IMG", ROOT . DS . "public/img/users/");
+    defined("USER_IMG") ?: define("USER_IMG", ROOT . DS . "public\img\users");
+    defined("CAKE_IMG") ?: define("CAKE_IMG", ROOT . DS . "public\img\cakes");
 
     //Database
     $db = require_once CONF . DS . "Database.php";
