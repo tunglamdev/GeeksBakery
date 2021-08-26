@@ -55,8 +55,8 @@
                       <td><?= $cake["description"] ?></td>
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <a href="<?= DOCUMENT_ROOT ?>/admin/cakes/edit/<?= $cake["id"] ?>"><button type="button" class="btn btn-info">Edit</button></a>
-                          <a href="<?= DOCUMENT_ROOT ?>/admin/cakes/delete"><button type="button" class="btn btn-danger">Delete</button></a>
+                          <a href="<?= DOCUMENT_ROOT ?>/admin/cakes/edit/<?= $cake["id"] ?>" class="btn btn-info">Edit</a>
+                          <a href="<?= DOCUMENT_ROOT ?>/admin/cakes/delete" class="btn btn-danger">Delete</a>
                         </div>
                       </td>
                     </tr>

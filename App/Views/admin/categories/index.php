@@ -50,8 +50,8 @@
                       </td>
                       <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                          <a href="<?= DOCUMENT_ROOT ?>/admin/categories/edit/<?= $cake["id"] ?>"><button type="button" class="btn btn-info">Edit</button></a>
-                          <a href="<?= DOCUMENT_ROOT ?>/admin/categories/delete/<?= $cake["id"] ?>"><button type="button" class="btn btn-danger">Delete</button></a>
+                          <a href="<?= DOCUMENT_ROOT ?>/admin/categories/edit/<?= $cake["id"] ?>" class="btn btn-info">Edit</a>
+                          <a href="<?= DOCUMENT_ROOT ?>/admin/categories/delete/<?= $cake["id"] ?>" class="btn btn-danger">Delete</a>
                         </div>
                       </td>
                     </tr>
