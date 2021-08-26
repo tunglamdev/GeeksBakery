@@ -35,7 +35,6 @@
                     <th>OrderDate</th>
                     <th>DeliverDate</th>
                     <th>Status</th>
-                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -50,12 +49,6 @@
                         <td><?= $cake["order_date"] ?></td>
                         <td><?= $cake["delivery_date"] ?></td>
                         <td><?= $cake["Status"] ?></td>
-                        <td>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-info">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </td>
                         </tr>
                     <?php endforeach; ?>
                   </tbody>
