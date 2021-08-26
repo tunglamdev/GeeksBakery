@@ -39,5 +39,35 @@
                 else header("Location: ".DOCUMENT_ROOT."/admin/categories/create");
             }
         }
+
+         
+        function edit($cateId){
+            $result = $this->cakeTypeModel->getCateById($cateId);
+            if ($result != false) $data["cate"] = $result;
+            $this->view("categories/edit", $data);
+        }
+
+        function update($cateId){
+            if(!isset($_POST)) header("Location: ".DOCUMENT_ROOT."/admin/categories/edit");
+            else{
+                $data["id"] = $cateId;
+                $data["name"] = $_POST["name"];
+
+                if($_FILES["image"]["name"] != ""){
+                        $randomNum = time();
+                        $imageExt = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);//Lay phan mo rong cua ten file
+                        $newImageName = $randomNum.".".$imageExt;
+                        move_uploaded_file($_FILES["image"]["tmp_name"], CATE_IMG.DS.$newImageName);
+                        $data["image"] = $newImageName;
+                }      
+                else{
+                    $data["image"] = $_POST["old-image"];
+                }
+
+                $result = $this->cakeTypeModel->update($data);
+                if ($result == true) header("Location: ".DOCUMENT_ROOT."/admin/categories");
+                else header("Location: ".DOCUMENT_ROOT."/admin/categories/edit");
+            }
+        }
     }
 ?>
