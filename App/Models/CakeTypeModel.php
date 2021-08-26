@@ -15,5 +15,22 @@
                 return false;
             }
         }
+
+        function insert($data){
+            $name = $data["name"];
+            $image = $data["image"];
+
+            $stmt = $this->conn->prepare("INSERT INTO cake_types VALUES (NULL, ?, ?)");
+            $stmt->bind_param("ss",$name,$image);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+
+            if($result>0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>

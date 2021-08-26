@@ -12,6 +12,7 @@
     defined("VIEW") ?: define("VIEW", APP . DS . "Views");
     defined("USER_IMG") ?: define("USER_IMG", ROOT . DS . "public\img\users");
     defined("CAKE_IMG") ?: define("CAKE_IMG", ROOT . DS . "public\img\cakes");
+    defined("CATE_IMG") ?: define("CATE_IMG", ROOT . DS . "public\img\categories");
 
     //Database
     $db = require_once CONF . DS . "Database.php";

@@ -21,7 +21,15 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <!-- /.card-header -->
+              <!--card-header -->
+              <div class="card-header">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <h4>Categories list</h4>
+                      <a class="btn btn-primary" href="<?= DOCUMENT_ROOT ?>/admin/categories/create">Create</a>
+                  </div>
+              </div>
+
+              <!-- Card body -->
               <div class="card-body">
                 <table id="cakeTable" class="table table-bordered table-hover">
                   <thead>
