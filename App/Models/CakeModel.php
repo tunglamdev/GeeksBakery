@@ -92,6 +92,21 @@
             }
         }
 
+        //get cakes by id
+        function getCakeById($idCake){
+            $stmt = $this->conn->prepare("SELECT * FROM cakes WHERE id = ?");
+            $stmt->bind_param("i", $idCake);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if($result->num_rows >0){
+                return $result->fetch_assoc();
+            }
+            else{
+                return false;
+            }
+        }
+
         // Admin
         //Create new cake processing
         function insert($data){
@@ -104,6 +119,30 @@
 
             $stmt = $this->conn->prepare("INSERT INTO cakes VALUES (NULL, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("siisis",$name, $price, $size, $des, $cate, $image);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+
+            if($result>0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+
+         //Edit cake processing
+         function update($data){
+            $id = $data["id"];
+            $cate = $data["cate"];
+            $name = $data["name"];
+            $size = $data["size"];
+            $price = $data["price"];
+            $des = $data["des"];
+            $image = $data["image"];
+
+            $stmt = $this->conn->prepare("UPDATE cakes SET name=?, price=?, size=?, description=?, id_cake_type=?, image=? WHERE id=?");
+            $stmt->bind_param("siisisi",$name, $price, $size, $des, $cate, $image, $id);
             $stmt->execute();
             $result = $stmt->affected_rows;
 

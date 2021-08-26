@@ -47,5 +47,43 @@
                 else header("Location: ".DOCUMENT_ROOT."/admin/cakes/create");
             }
         }
+
+        
+        function edit($cakeId){
+            $result1 = $this->cakeTypeModel->all();
+            if ($result1 != false) $data["categories"] = $result1;
+
+            $result2 = $this->cakeModel->getCakeById($cakeId);
+            if ($result2 != false) $data["cake"] = $result2;
+            $this->view("cakes/edit", $data);
+        }
+
+        function update($cakeId){
+            if(!isset($_POST)) header("Location: ".DOCUMENT_ROOT."/admin/cakes/edit");
+            else{
+                $data["id"] = $cakeId;
+                $data["cate"] = $_POST["cate"];
+                $data["name"] = $_POST["name"];
+                $data["size"] = $_POST["size"];
+                $data["price"] = $_POST["price"];
+                $data["des"] = $_POST["des"];
+
+                if($_FILES["image"]["name"] != ""){
+                        $randomNum = time();
+                        $imageExt = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);//Lay phan mo rong cua ten file
+                        $newImageName = $randomNum.".".$imageExt;
+                        move_uploaded_file($_FILES["image"]["tmp_name"], CAKE_IMG.DS.$newImageName);
+                        $data["image"] = $newImageName;
+                }      
+                else{
+                    $data["image"] = $_POST["old-image"];
+                }
+
+                $result = $this->cakeModel->update($data);
+                if ($result == true) header("Location: ".DOCUMENT_ROOT."/admin/cakes");
+                else header("Location: ".DOCUMENT_ROOT."/admin/cakes/edit");
+            }
+        }
+
     }
 ?>
